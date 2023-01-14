@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:name=".core.CountryViewApplication"
         android:allowBackup="true"
@@ -27,6 +28,13 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
+        <receiver android:name=".presentation.utils.network.NetworkConnectionReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.CONNECTIVITY_ACTION" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

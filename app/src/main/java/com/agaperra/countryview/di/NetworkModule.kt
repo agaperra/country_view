@@ -3,10 +3,9 @@ package com.agaperra.countryview.di
 import android.content.Context
 import com.agaperra.countryview.BuildConfig
 import com.agaperra.countryview.data.api.CountryApi
-import com.agaperra.countryview.domain.util.Constants.API
+import com.agaperra.countryview.presentation.utils.network.NetworkConnectionReceiver
 import com.agaperra.countryview.presentation.utils.network.NetworkStatusListener
 import com.agaperra.countryview.presentation.utils.network.NetworkStatusListenerImpl
-import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -19,13 +18,13 @@ import okhttp3.logging.HttpLoggingInterceptor
 import okhttp3.logging.HttpLoggingInterceptor.*
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import java.util.concurrent.TimeUnit
-import java.util.logging.Level
 import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
+
+    private const val API = "https://restcountries.com"
 
 
     @Singleton
@@ -33,7 +32,7 @@ object NetworkModule {
     fun provideInterceptors(): ArrayList<Interceptor> {
         val interceptors = arrayListOf<Interceptor>()
         val loggingInterceptor = HttpLoggingInterceptor().apply {
-            level = if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
+            level = if (BuildConfig.DEBUG) Level.BODY else Level.NONE
         }
         interceptors.add(loggingInterceptor)
         return interceptors
@@ -58,10 +57,15 @@ object NetworkModule {
     @Provides
     fun provideApi(retrofit: Retrofit): CountryApi = retrofit.create(CountryApi::class.java)
 
-    @ExperimentalCoroutinesApi
     @Singleton
     @Provides
     fun provideNetworkStatusListener(@ApplicationContext context: Context): NetworkStatusListener =
         NetworkStatusListenerImpl(context)
+
+
+    @Singleton
+    @Provides
+    fun provideNetworkConnectionReceiver(): NetworkConnectionReceiver =
+        NetworkConnectionReceiver()
 
 }

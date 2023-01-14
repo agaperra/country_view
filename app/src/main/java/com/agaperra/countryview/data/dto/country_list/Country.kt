@@ -2,7 +2,7 @@ package com.agaperra.countryview.data.dto.country_list
 
 import com.google.gson.annotations.SerializedName
 
-data class CountryListResponse (
+data class Country (
     @SerializedName("name"           ) var name           : String?                  = null,
     @SerializedName("topLevelDomain" ) var topLevelDomain : ArrayList<String>        = arrayListOf(),
     @SerializedName("alpha2Code"     ) var alpha2Code     : String?                  = null,
@@ -13,9 +13,9 @@ data class CountryListResponse (
     @SerializedName("subregion"      ) var subregion      : String?                  = null,
     @SerializedName("region"         ) var region         : String?                  = null,
     @SerializedName("population"     ) var population     : Int?                     = null,
-    @SerializedName("latlng"         ) var latlng         : ArrayList<Int>           = arrayListOf(),
+    @SerializedName("latlng"         ) var latlng         : ArrayList<Double>           = arrayListOf(),
     @SerializedName("demonym"        ) var demonym        : String?                  = null,
-    @SerializedName("area"           ) var area           : Int?                     = null,
+    @SerializedName("area"           ) var area           : Double?                     = null,
     @SerializedName("timezones"      ) var timezones      : ArrayList<String>        = arrayListOf(),
     @SerializedName("borders"        ) var borders        : ArrayList<String>        = arrayListOf(),
     @SerializedName("nativeName"     ) var nativeName     : String?                  = null,
