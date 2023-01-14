@@ -2,7 +2,7 @@
 
 Данное приложение имеет возможность демонстрировать список всех стран мира,<br>который получает от
 REST
-API <a href="https://restcountries.com/#api-endpoints-v2" >https://restcountries.com/#api-endpoints-v2</a>.<br><br>
+API <a href="https://restcountries.com/#api-endpoints-v2" target="_blank">https://restcountries.com/#api-endpoints-v2</a>.<br><br>
 На данном скриншоте представлен главный экран в обычном
 состоянии.<br><img src="https://github.com/agaperra/country_view/blob/2_details_content/images/1.jpg" width="300" /><br><br>
 Этот экран является детализацией информации о стране, которую можно получить по нажатию на элемент
