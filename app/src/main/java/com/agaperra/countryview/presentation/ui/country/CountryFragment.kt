@@ -1,11 +1,11 @@
-package com.agaperra.countryview.presentation.ui.main
+package com.agaperra.countryview.presentation.ui.country
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import androidx.fragment.app.activityViewModels
 import androidx.viewbinding.ViewBinding
-import com.agaperra.countryview.databinding.FragmentMainBinding
+import com.agaperra.countryview.databinding.FragmentCountryBinding
 import com.agaperra.countryview.presentation.BindingFragment
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -15,7 +15,7 @@ import dagger.hilt.android.AndroidEntryPoint
  * @constructor Create empty Main fragment
  */
 @AndroidEntryPoint
-class MainFragment : BindingFragment<FragmentMainBinding>() {
+class CountryFragment : BindingFragment<FragmentCountryBinding>() {
 
     /**
      * Binding inflater
@@ -23,10 +23,10 @@ class MainFragment : BindingFragment<FragmentMainBinding>() {
      * Creating a binding instance
      */
     override val bindingInflater: (LayoutInflater) -> ViewBinding
-        get() = FragmentMainBinding::inflate
+        get() = FragmentCountryBinding::inflate
 
     // the model will not be recreated every time
-    private val viewModel: MainViewModel by activityViewModels()
+    private val viewModel: CountryViewModel by activityViewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
