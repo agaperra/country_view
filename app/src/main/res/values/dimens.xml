@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="standard_margin">20dp</dimen>
+    <dimen name="minimum_margin">5dp</dimen>
+    <dimen name="standard_size">22sp</dimen>
+</resources>

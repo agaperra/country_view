@@ -2,9 +2,7 @@ package com.agaperra.countryview.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.agaperra.countryview.R
 import com.agaperra.countryview.databinding.ActivityMainBinding
-import com.agaperra.countryview.presentation.ui.main.MainFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 /**

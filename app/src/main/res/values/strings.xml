@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Country view</string>
+    <string name="update">Обновить</string>
+    <string name="no_internet">Отсутствует интернет соединение, проверьте подключение к сети</string>
 </resources>
