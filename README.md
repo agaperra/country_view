@@ -12,5 +12,5 @@ API <a href="https://restcountries.com/#api-endpoints-v2" >https://restcountries
 выключена.<br>
 <img src="https://github.com/agaperra/country_view/blob/2_details_content/images/3.jpg" width="300" /><br><br>
 После того, как была выключена сеть - была произведена попытка обновить данные по нажатию на соответствующую кнопку.<br> 
-Пользователю в таком случае показываетсчя дополнительное уведомление.<br>
+Пользователю в таком случае показывается дополнительное уведомление.<br>
 <img src="https://github.com/agaperra/country_view/blob/2_details_content/images/4.jpg" width="300" />
