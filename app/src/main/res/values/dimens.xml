@@ -3,4 +3,6 @@
     <dimen name="standard_margin">20dp</dimen>
     <dimen name="minimum_margin">5dp</dimen>
     <dimen name="standard_size">22sp</dimen>
+    <dimen name="type_size">19sp</dimen>
+    <dimen name="big_size">30sp</dimen>
 </resources>

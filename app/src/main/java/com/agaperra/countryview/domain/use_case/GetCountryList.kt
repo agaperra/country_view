@@ -9,6 +9,12 @@ import kotlinx.coroutines.flow.flow
 import retrofit2.HttpException
 import javax.inject.Inject
 
+/**
+ * Get country list
+ *
+ * @property countryListRepository
+ * @constructor Create empty Get country list
+ */
 class GetCountryList @Inject constructor(
     private val countryListRepository: CountryListRepository,
 ) {

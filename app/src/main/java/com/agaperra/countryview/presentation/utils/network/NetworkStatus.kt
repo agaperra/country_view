@@ -1,5 +1,10 @@
 package com.agaperra.countryview.presentation.utils.network
 
+/**
+ * Network status
+ *
+ * @constructor Create empty Network status
+ */
 sealed class NetworkStatus{
     abstract fun apply(handle: HandleConnection)
 
