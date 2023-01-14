@@ -1,6 +1,7 @@
 package com.agaperra.countryview.data.dto.country_list
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class Translations (
 
@@ -16,4 +17,4 @@ data class Translations (
     @SerializedName("it" ) var it : String? = null,
     @SerializedName("hu" ) var hu : String? = null
 
-)
+): Serializable

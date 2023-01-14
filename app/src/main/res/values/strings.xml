@@ -2,4 +2,12 @@
     <string name="app_name">Country view</string>
     <string name="update">Обновить</string>
     <string name="no_internet">Отсутствует интернет соединение, проверьте подключение к сети</string>
+    <string name="error_serialize">Произошла непредвиденная ошибка, повторите попытку позже</string>
+    <string name="region">Region: %s</string>
+    <string name="capital">Capital: %s</string>
+    <string name="currencies">Currencies: %s</string>
+    <string name="timezone">Timezones: %s</string>
+    <string name="population">Population: %s</string>
+    <string name="independent">Independent: %s</string>
+    <string name="unknown">Unknown</string>
 </resources>

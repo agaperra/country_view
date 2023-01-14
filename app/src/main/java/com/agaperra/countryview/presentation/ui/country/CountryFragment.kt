@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.viewbinding.ViewBinding
 import com.agaperra.countryview.R
 import com.agaperra.countryview.data.dto.country_list.Country
@@ -22,9 +23,9 @@ import javax.inject.Inject
 
 
 /**
- * Main fragment
+ * Country fragment
  *
- * @constructor Create empty Main fragment
+ * @constructor Create empty Country fragment
  */
 @AndroidEntryPoint
 class CountryFragment : BindingFragment<FragmentCountryBinding>() {
@@ -40,13 +41,20 @@ class CountryFragment : BindingFragment<FragmentCountryBinding>() {
     // the model will not be recreated every time
     private val viewModel: CountryViewModel by activityViewModels()
 
+    /**
+     * Network connection receiver
+     */
     @Inject
     internal lateinit var networkConnectionReceiver: NetworkConnectionReceiver
 
+    /**
+     * Country adapter
+     */
     private val countryAdapter by lazy {
         CountryListAdapter(object : CountryItemClickListener {
             override fun onItemClick(item: Country) {
-                TODO("add action after click")
+                val bundle = Bundle().apply { putSerializable("country", item) }
+                findNavController().navigate(R.id.action_countryFragment_to_detailsFragment, bundle)
             }
         })
     }
@@ -86,7 +94,13 @@ class CountryFragment : BindingFragment<FragmentCountryBinding>() {
         }
     }
 
-
+    /**
+     * Make bar
+     *
+     * SnackBar make helper
+     *
+     * @param view
+     */
     private fun makeBar(view: View) {
         val snackBar =
             Snackbar.make(view, resources.getString(R.string.no_internet), Snackbar.LENGTH_LONG)
@@ -101,6 +115,10 @@ class CountryFragment : BindingFragment<FragmentCountryBinding>() {
     }
 
 
+    /**
+     * Subscribe to events
+     *
+     */
     private fun subscribeToEvents() {
         lifecycleScope.launchWhenStarted {
             viewModel.contentEvent.collect { event ->

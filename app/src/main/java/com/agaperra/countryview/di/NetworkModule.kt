@@ -11,7 +11,6 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -20,13 +19,26 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
+/**
+ * Network module
+ *
+ * @constructor Create empty Network module
+ */
 @Module
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
 
+    /**
+     * Api string
+     */
     private const val API = "https://restcountries.com"
 
 
+    /**
+     * Provide interceptors
+     *
+     * @return
+     */
     @Singleton
     @Provides
     fun provideInterceptors(): ArrayList<Interceptor> {
@@ -38,6 +50,12 @@ object NetworkModule {
         return interceptors
     }
 
+    /**
+     * Provide client
+     *
+     * @param interceptors
+     * @return
+     */
     @Singleton
     @Provides
     fun provideClient(interceptors: ArrayList<Interceptor>): OkHttpClient =
@@ -45,6 +63,12 @@ object NetworkModule {
             interceptors.forEach { client.addInterceptor(it) }
         }.build()
 
+    /**
+     * Provide retrofit
+     *
+     * @param okHttpClient
+     * @return
+     */
     @Singleton
     @Provides
     fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit = Retrofit.Builder()
@@ -53,19 +77,36 @@ object NetworkModule {
         .client(okHttpClient)
         .build()
 
+    /**
+     * Provide api
+     *
+     * @param retrofit
+     * @return
+     */
     @Singleton
     @Provides
     fun provideApi(retrofit: Retrofit): CountryApi = retrofit.create(CountryApi::class.java)
 
+    /**
+     * Provide network status listener
+     *
+     * @param context
+     * @return
+     */
     @Singleton
     @Provides
     fun provideNetworkStatusListener(@ApplicationContext context: Context): NetworkStatusListener =
         NetworkStatusListenerImpl(context)
 
-
+    /**
+     * Provide network connection receiver
+     *
+     * @return
+     */
     @Singleton
     @Provides
     fun provideNetworkConnectionReceiver(): NetworkConnectionReceiver =
         NetworkConnectionReceiver()
+
 
 }

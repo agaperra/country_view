@@ -7,7 +7,6 @@ import android.net.NetworkCapabilities
 import android.net.NetworkCapabilities.NET_CAPABILITY_INTERNET
 import android.net.NetworkRequest
 import android.os.Build
-import androidx.core.content.ContextCompat.getSystemService
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -18,7 +17,15 @@ import kotlinx.coroutines.flow.shareIn
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-
+/**
+ * Network status listener impl
+ *
+ * Required to monitor the status of the network connection
+ *
+ * @constructor
+ *
+ * @param context
+ */
 class NetworkStatusListenerImpl @Inject constructor(context: Context) : NetworkStatusListener {
 
     private val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager

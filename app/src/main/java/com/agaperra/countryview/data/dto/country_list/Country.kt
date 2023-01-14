@@ -1,6 +1,8 @@
 package com.agaperra.countryview.data.dto.country_list
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
+
 
 data class Country (
     @SerializedName("name"           ) var name           : String?                  = null,
@@ -28,4 +30,4 @@ data class Country (
     @SerializedName("regionalBlocs"  ) var regionalBlocs  : ArrayList<RegionalBlocs> = arrayListOf(),
     @SerializedName("cioc"           ) var cioc           : String?                  = null,
     @SerializedName("independent"    ) var independent    : Boolean?                 = null
-)
+): Serializable

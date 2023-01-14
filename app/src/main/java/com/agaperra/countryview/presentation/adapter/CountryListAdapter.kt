@@ -9,10 +9,21 @@ import com.agaperra.countryview.R
 import com.agaperra.countryview.data.dto.country_list.Country
 import com.agaperra.countryview.databinding.CountryItemBinding
 
-
+/**
+ * Country list adapter
+ *
+ * @property onCountryClickListener
+ * @constructor Create empty Country list adapter
+ */
 class CountryListAdapter(val onCountryClickListener: CountryItemClickListener) :
     ListAdapter<Country, CountryListAdapter.BinListViewHolder>(CountryDiffUtil()) {
 
+    /**
+     * Bin list view holder
+     *
+     * @property binding
+     * @constructor Create empty Bin list view holder
+     */
     inner class BinListViewHolder(private val binding: CountryItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
@@ -31,7 +42,12 @@ class CountryListAdapter(val onCountryClickListener: CountryItemClickListener) :
         }
     }
 
-
+    /**
+     * On create view holder
+     *
+     * @param parent
+     * @param viewType
+     */
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         BinListViewHolder(
             CountryItemBinding.bind(
@@ -43,6 +59,12 @@ class CountryListAdapter(val onCountryClickListener: CountryItemClickListener) :
             )
         )
 
+    /**
+     * On bind view holder
+     *
+     * @param holder
+     * @param position
+     */
     override fun onBindViewHolder(holder: BinListViewHolder, position: Int) =
         holder.bind(itemPosition = position)
 

@@ -6,6 +6,13 @@ import android.content.Intent
 import android.net.ConnectivityManager
 import androidx.lifecycle.MutableLiveData
 
+/**
+ * Network connection receiver
+ *
+ * Required to get the network status during a request to the server
+ *
+ * @constructor Create empty Network connection receiver
+ */
 class NetworkConnectionReceiver : BroadcastReceiver() {
 
     companion object {
